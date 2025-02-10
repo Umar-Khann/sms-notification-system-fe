@@ -1,47 +1,92 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# SMS Notification System
 
-## Available Scripts
+A full-stack **SMS Notification System** built with a **React frontend** using **TypeScript**. This project is designed to manage user registration, login, and sending SMS notifications. The application structure follows a modular design pattern for scalability and maintainability.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## **Features**
+- User Authentication (register, login) using context for state management.
+- Display and manage users through a dynamic user table.
+- Send SMS notifications to registered users.
+- Modular and reusable component structure.
+- Environment-based API configuration.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## **Project Structure**
 
-### `npm test`
+```
+.
+├── README.md                    # Project documentation  
+├── package.json                 # Project metadata and dependencies  
+├── package-lock.json            # Dependency lock file  
+├── public                       # Static public files (HTML, icons, manifest)  
+├── src                          # Main application source code  
+│   ├── App.tsx                  # Root application component  
+│   ├── index.tsx                # Application entry point  
+│   ├── components               # Reusable UI components  
+│   │   ├── LoginForm.tsx        # User login form component  
+│   │   ├── RegisterForm.tsx     # User registration form component  
+│   │   └── UserTable.tsx        # User listing table component  
+│   ├── context                  # React context for global state management  
+│   │   └── AuthContext.tsx      # Authentication context provider  
+│   ├── pages                    # Page-level components  
+│   │   ├── Auth.tsx             # Authentication page  
+│   │   └── Home.tsx             # Home page displaying user data  
+│   ├── services                 # API service configurations  
+│   │   └── api.ts               # API service for backend communication  
+│   ├── styles                   # Application-wide styles and themes  
+│   │   └── theme.ts             # Theme configuration for consistent styling  
+│   └── types                    # TypeScript types and interfaces  
+│       └── index.ts             # Global type definitions  
+└── tsconfig.json                # TypeScript configuration file
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## **Setup Instructions**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### **1. Prerequisites**
+- Node.js and npm installed on your system.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### **2. Clone the Repository**
+```bash
+git clone https://github.com/your-username/sms-notification-system.git
+cd sms-notification-system-fe
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### **3. Environment Configuration**
+- The project uses environment variables for API configuration. Copy the provided `.env.example` file and rename it to `.env`, then fill in the required values.
 
-### `npm run eject`
+#### .env
+```env
+REACT_APP_API_BASE_URL=your_backend_url
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### **4. Install Dependencies**
+```bash
+npm install
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### **5. Run the Application**
+```bash
+npm start
+```
+- The application will be accessible at `http://localhost:3000`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## **Tech Stack**
 
-## Learn More
+### Frontend
+- **React** with **TypeScript**
+- **Context API** for state management
+- **Axios** for API communication
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Development Tools
+- **npm** for package management
+- **TypeScript** for type-safe development
+- **ESLint** and **Prettier** for code linting and formatting
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-# sms-notification-system-fe
+---
