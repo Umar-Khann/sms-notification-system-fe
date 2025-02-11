@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState } from "react";
 import { loginUser } from "../services/api";
+import { setToken } from "../util/token";
 
 interface AuthContextType {
   isAuthenticated: boolean;
@@ -19,11 +20,16 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   const login = async (email: string, password: string, navigate: Function) => {
     try {
       const response = await loginUser(email, password);
-      console.log("response", response);
       if (response.status === 200) {
         setIsAuthenticated(true);
         setUserEmail(email);
-        navigate("/home"); // Navigate to the home page after successful login
+        const authHeader = response.headers["authorization"];
+        const token = authHeader?.split(" ")[1];
+        if (token) {
+          setToken(token);
+        }
+        localStorage.setItem("isLoggedIn", String(response.status));
+        navigate("/home");
       } else {
         alert("Invalid login credentials");
       }
